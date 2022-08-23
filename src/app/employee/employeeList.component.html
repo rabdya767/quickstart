@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<h1 >Employee Details</h1><br><br>
+<h2>Type your color:<input type="text" [(ngModel)]="colour" [style.background]="colour"/></h2>
+<br/>
+<button class="btn btn-success" (click)="toggleNodeId()">{{showNodeId ? 'Hide':'Show'}} Login Password </button>
+<br><br>
+<!-- <employee-count  *ngIf="employees"></employee-count><br /> -->
+<!-- <employee-count
+  *ngIf="employees"
+  [All]="getTotalEmployeesCount()"
+  [Male]="getTotalMaleEmployeesCount()"
+  [Female]="getTotalFemaleEmployeesCount()"
+  (countRadioButtonSelectionChanged)="onEmployeeCountRadioButtonChange($event)">
+  </employee-count
+><br /> -->
+<table>
+  <thead>
+    <tr>
+      <th>login</th>
+      <th>id</th>
+      <th>type</th>
+      <th>site_admin</th>
+      <th>url</th>
+      <th *ngIf="showNodeId">login password</th>
+      <!-- <th>Annual Salary</th>
+      <th>Index</th> -->
+      <!-- <th>1st</th>
+      <th>lst</th>
+      <th>isEven</th>
+      <th>isOdd</th>
+      <th>count</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="
+    let employee of employees;
+    trackBy: trackByCode;
+    let i = index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven = even;
+    let isOdd = odd;
+    let count = count"; >
+    <tr *ngIf="selectedEmployeeCountRadioButton=='All' || selectedEmployeeCountRadioButton==employee.gender">
+      <td>
+        <a [routerLink]="['/employees',employee.login]">
+          <button  class="btn btn-primary">{{ employee.login}}</button></a></td>
+      <td>{{ employee.id }}</td>
+      <td>{{ employee.type }}</td>
+      <td>{{ employee.site_admin }}</td>
+      <td> <a href={{employee.url}} target="_blank" style="color: crimson;text-decoration: underline;"><button  class="btn btn-danger">All Details</button></a></td>
+      <td *ngIf="showNodeId"><button  class="btn btn-info">{{ employee.node_id}}</button></td>
+      <!-- <td>{{ employee.city | uppercase }}</td> -->
+      <!-- <td>{{ employee.salary | currency: "USD":true:"1.1-2" }}</td> -->
+      <!-- <td>{{ i + 1 }}</td> -->
+      <!-- <th>{{ isFirst }}</th>
+      <th>{{ isLast }}</th>
+      <th>{{ isEven }}</th>
+      <th>{{ isOdd }}</th>
+      <th>{{ count }}</th> -->
+    </tr>
+  </ng-container>
+  <tr *ngIf="!employees">
+    <td colspan="6" style="text-align: center">{{statusMessage}}</td>
+  </tr>
+  <tr *ngIf="employees && employees.length == 0">
+      <td colspan="6" style="text-align: center">No Employees to display</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+<button class="btn btn-success" (click)="getEmployees()">Refresh Employees</button>

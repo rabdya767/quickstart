@@ -1,0 +1,19 @@
+<!-- <div>
+  <h1>Hello {{ name ? name : "Angular" }}</h1>
+  <img [src]="imagePath" alt="angular logo" />
+  <my-employee>Loading employee details</my-employee>
+  <h2>{{ "This is " + getFullName() }}</h2>
+  <h3 bind-innerHtml="firstName"></h3>
+</div> -->
+
+<!-- <list-employee></list-employee> -->
+
+<div style="padding: 5px;">
+  <ul class="nav nav-tabs">
+    <li routerLinkActive="active"><a  routerLink="home">Home</a> </li>
+    <li routerLinkActive="active"><a routerLink="employees">Employees</a> </li>
+    <!-- <li routerLinkActive="active"><a routerLink="other">Others</a> </li> -->
+  </ul>
+  <br/>
+  <router-outlet></router-outlet>
+</div>

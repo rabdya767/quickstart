@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<br>
+<button class="btn btn-success" (click)="toggleDetails()">{{showDetails ? 'Hide':'Show'}} Details</button>
+<button class="btn btn-warning" routerLink="../">Back to Employees</button>
+<button class="btn btn-info" routerLink="../../">Back to Home</button>
+<button class="btn btn-primary" (click)="onBackButtonClick()">Back to Random User</button>
+<br><br>
+<table *ngIf="employee">
+  <thead>
+    <tr>
+      <th attr.colspan="{{colspan}}">
+        Employee Details
+      </th>
+      <!-- <th>Property</th>
+      <th>Value</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>login</td>
+      <td>{{employee.login}}</td>
+    </tr>
+
+    <tr>
+      <td>id</td>
+      <td>{{ employee.id }}</td>
+    </tr>
+    <tr>
+      <td>site_admin</td>
+      <td>{{ employee.site_admin }}</td>
+    </tr>
+    <tr>
+      <td>url</td>
+      <td>{{ employee.url }}</td>
+    </tr>
+    <tr>
+      <td>html_url</td>
+      <td>{{ employee.html_url }}</td>
+    </tr>
+
+    <tr *ngIf="showDetails">
+      <td>node_id</td>
+      <td>{{ employee.node_id }}</td>
+    </tr>
+
+    <tr *ngIf="showDetails">
+      <td>type</td>
+      <td>{{ employee.type }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="!employee">
+  {{statusMessage}}
+</div>
+<br/>
+<br/>
+<div class="spinner-border text-muted"></div>
+<div class="spinner-border text-primary"></div>
+<div class="spinner-border text-success"></div>
+<div class="spinner-border text-info"></div>
+<div class="spinner-border text-warning"></div>
+<div class="spinner-border text-danger"></div>
+<div class="spinner-border text-secondary"></div>
+<div class="spinner-border text-dark"></div>
+<div class="spinner-border text-light"></div>
+<br><br>
+<div class="spinner-grow text-muted"></div>
+<div class="spinner-grow text-primary"></div>
+<div class="spinner-grow text-success"></div>
+<div class="spinner-grow text-info"></div>
+<div class="spinner-grow text-warning"></div>
+<div class="spinner-grow text-danger"></div>
+<div class="spinner-grow text-secondary"></div>
+<div class="spinner-grow text-dark"></div>
+<div class="spinner-grow text-light"></div>

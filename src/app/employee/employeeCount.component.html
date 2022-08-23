@@ -1,0 +1,29 @@
+<span class="radioClass">Show :</span>
+
+<input
+  type="radio"
+  name="options"
+  value="All"
+  [(ngModel)]="selectedRadioButtonValue"
+  (change)="onRadioButtonSelectionChange()"
+/>
+<span class="radioClass">{{ "All(" + All + ")" }}</span>
+
+<input
+  type="radio"
+  name="options"
+  value="Male"
+  [(ngModel)]="selectedRadioButtonValue"
+  (change)="onRadioButtonSelectionChange()"
+/>
+<span class="radioClass">{{ "Male(" + Male + ")" }}</span>
+
+<input
+  type="radio"
+  name="options"
+  value="Female"
+  [(ngModel)]="selectedRadioButtonValue"
+  (change)="onRadioButtonSelectionChange()"
+/>
+<span class="radioClass">{{ "Female(" + Female + ")" }}</span>
+<br />
